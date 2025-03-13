@@ -20,6 +20,23 @@ function App() {
  const [searchTerm,setSearchTerm] = useState("")
  
 
+ // delete
+const deleteData =(id) =>{
+  setUsers(users.filter((item) => {
+    return item.id !== id
+  }
+))
+
+}
+
+// complete
+const completeData = (id) => {
+ setUsers(users.map((item) => {
+  return item.id === id ? {...item,isCompleted:true}:item
+ }
+)) 
+}
+
  //local stoage
 
  useEffect(()=>{
@@ -27,13 +44,13 @@ function App() {
  })
 
   return (
-    <>
-      <div className="p-2 ml-10">
-        <input type="text" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} placeholder="Search"/>
+    <div className="bg-emerald-200 p-8">
+      <div className="flex w-96 h-10 ml-10">
+        <input type="text" className="w-77 outline-none" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} placeholder="Search"/>
         <button className="mx-2 px-3 bg-blue-500 rounded-md">Search</button>
       </div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
-        <h2 className="mb-4 text-2xl font-semibold leading-tight">Invoices</h2>
+        <h2 className="mb-4 text-2xl font-semibold leading-tight">Contact List</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full text-xs">
             <colgroup>
@@ -66,7 +83,7 @@ function App() {
               .map((item)=>{
                 return(
 
-            <tr key={item.id} className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
+            <tr key={item.id} className={`border-b border-opacity-20 dark:border-gray-300 ${item.isCompleted ? "bg-green-600" : "bg-emerald-200"}`}>
                 <td className="p-3">
                   <p>{item.id}</p>
                 </td>
@@ -88,17 +105,17 @@ function App() {
                 </td>
                 <td className="p-3 text-right">
                   <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-                    <span><DeleteForeverTwoToneIcon/></span>
+                    <span onClick={()=>{deleteData(item.id)}}><DeleteForeverTwoToneIcon/></span>
                   </span>
                 </td>
                 <td className="p-3 text-right">
                   <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-                    <span><EditTwoToneIcon/></span>
+                    <span><EditTwoToneIcon/>{item.isCompleted}</span>
                   </span>
                 </td>
                 <td className="p-3 text-right">
                   <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-                    <span><CheckCircleTwoToneIcon/></span>
+                    <span onClick={()=>{completeData(item.id)}}><CheckCircleTwoToneIcon/></span>
                   </span>
                 </td>
 
@@ -111,9 +128,7 @@ function App() {
           </table>
         </div>
       </div>
-      
-      <h1 className="text-7xl">helloworld</h1>
-    </>
+    </div>
   )
 }
 
