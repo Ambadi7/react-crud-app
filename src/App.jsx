@@ -61,7 +61,7 @@ const editData = (id) =>{
 
   return (
 
-    <div className="bg-emerald-200 p-8">
+    <div className="min-h-screen bg-emerald-200 p-8">
       <div className="flex w-96 h-10 ml-10">
         <input type="text" className="w-77 outline-none" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} placeholder="Search"/>
         <button className="mx-2 px-3 bg-blue-500 rounded-md">Search</button>

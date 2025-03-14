@@ -18,4 +18,17 @@ A simple web application for managing a contact list built with React.js and sty
 - **useState**: React hook to manage state within components.
 - **useEffect**: React hook to perform side effects like fetching data or updating UI.
 
+### Output
+
+![conatact list](./ss1.jpg)
+#### After Search
+![conatact list](./ss2.jpg)
+#### Status Update
+![conatact list](./ss3.jpg)
+#### Edit 
+![conatact list](./ss4.jpg)
+
+
+[Live Demo](https://a-contact-list.netlify.app/)
+
 
