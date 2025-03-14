@@ -9,7 +9,7 @@ A simple web application for managing a contact list built with React.js and sty
 - **Search Functionality**: Easily search contacts by name.
 - **State Management**: Uses React's `useState` hook to manage contact data.
 - **Side Effects**: Uses React's `useEffect` hook to handle side effects like data fetching (if needed) or updating UI components.
-- **Responsive UI**: The app is fully responsive and styled with Tailwind CSS, ensuring it works well on both desktop and mobile devices.
+
 
 ## Technologies Used
 
